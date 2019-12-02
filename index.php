@@ -15,7 +15,7 @@ try {
 } catch (\PDOException $e) {
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
-$stmt = $pdo->query('SELECT title FROM books WHERE release_date = :year');
+$stmt = $pdo->prepare('SELECT title FROM books WHERE release_date = :year');
 $stmt->execute(['year'=>"2000"]);
 while ($row = $stmt->fetch()){
     echo $row['title'] . "<br><br>";

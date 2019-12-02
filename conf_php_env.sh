@@ -4,7 +4,7 @@
 export DEBIAN_FRONTEND=noninteractive
 apt update -y
 apt upgrade -y
-apt install mariadb-server php-mysql -y
+apt install mariadb-server php-mysql php -y
 sudo service mysql start
 
 sudo mysql -u root <<EOF
