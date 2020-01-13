@@ -1,7 +1,7 @@
 <?php
 require_once 'db_connection.php';
 $id = $_GET['id'];
-$stmt = $pdo->prepare('SELECT * FROM books WHERE id=:id');
+$stmt = $pdo->prepare('SELECT * FROM Books.books LEFT JOIN Books.book_authors ON book_id=Books.books.id LEFT JOIN Books.authors ON Books.authors.id = author_id WHERE Books.books.id=:id');
 $stmt->execute(['id' => $id]);
 $book = $stmt->fetch();
 ?>
@@ -16,6 +16,19 @@ $book = $stmt->fetch();
     <title><?=$book['title'] ?>  </title>
 </head>
 <body>
-    
+<h1>Kirjeldus: </h1>
+<?=$book['summary']?> <br>
+<h2>Laos hetkel: </h2>
+<?=$book['stock_saldo']?> <br>
+<h2>Lehekülgi: </h2>
+<?=$book['pages']?> <br>
+<h2>Ilmumisaasta: </h2>
+<?=$book['release_date']?> <br> 
+<h2>Keel: </h2>
+<?=$book['language']?> <br>
+<h2>Autori nimi </h2>
+<?=$book['first_name']?> <?=$book['last_name']?>
+
+
 </body>
 </html>

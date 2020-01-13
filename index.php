@@ -27,7 +27,7 @@ $stmt->execute(['title' => '%' . $title . '%' ,'year'=> $year]);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="style" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Raamatu otsing</title>
 </head>
     <style>
@@ -50,7 +50,7 @@ $stmt->execute(['title' => '%' . $title . '%' ,'year'=> $year]);
     <form action="index.php" method="GET">
         <input id="otsi" name="title" type="text" placeholder="Raamatu pealkiri" value="<?=$title;?>">
         <input id="otsi" name="year" type="text" placeholder="Raamatu aasta" value="<?=$year;?>">  <br> <br>
-        <input id="submit" type="submit" value="Otsi" style="box-shadow: 0px 10px 14px -7px #276873;background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);background-color:#599bb3;border-radius:8px;display:inline-block;cursor:pointer;color:#ffffff;font-family:Arial;font-size:16px;font-weight:bold;padding:13px 32px;text-decoration:none;text-shadow:0px 1px 0px #3d768a;" class="myButton"/>
+        <input id="submit" type="submit" value="Otsi" class="btn draw-border"/>
     </form>
     <ul>
 <?php
