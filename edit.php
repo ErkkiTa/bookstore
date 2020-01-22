@@ -23,38 +23,30 @@ $book = $stmt->fetch();
 <br> 
 <h3>Raamatu pealkiri</h3>
 <form action="edit.php" method="get">
-       
+        <input type="hidden" name="id" value='<?php echo $id?>'>
         <input type='text' name='title' value='<?php echo $book['title']; ?>'>
         <br>
-        <input type='submit' value='Salvesta'>
-    </form>
+
 <?php echo $book['title']; ?>  
 <br>
 <h3>Laos hetkel</h3>
-<form action="edit.php" method="get">
        
         <input type='text' name='stock' value='<?php echo $book['stock_saldo']; ?>'>
         <br>
-        <input type='submit' value='Salvesta'>
-    </form>
+
     <h3>Lehekülgi</h3>
-<form action="edit.php" method="get">
+
        
         <input type='text' name='page' value='<?php echo $book['pages']; ?>'>
         <br>
-        <input type='submit' value='Salvesta'>
-    </form>
     <h3>Keel</h3>
-<form action="edit.php" method="get">
        
         <input type='text' name='language' value='<?php echo $book['language']; ?>'>
         <br>
-        <input type='submit' value='Salvesta'>
-    </form>
     <h3>Autori nimi</h3>
-<form action="edit.php" method="get">
        
         <input type='text' name='names' value='<?=$book['first_name']?> <?=$book['last_name']?>'>
+        <br>
         <br>
         <input type='submit' value='Salvesta'>
     </form>
