@@ -16,6 +16,8 @@ $book = $stmt->fetch();
     <title><?=$book['title'] ?>  </title>
 </head>
 <body>
+<a href="delete.php?id=<?php echo $id?>">Delete </a>  <br><br>
+<a href="edit.php?id=<?php echo $id?>">Edit </a>  
 <h1>Kirjeldus: </h1>
 <?=$book['summary']?> <br>
 <h2>Laos hetkel: </h2>
