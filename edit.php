@@ -6,6 +6,21 @@ $stmt = $pdo->prepare('SELECT * FROM Books.books b LEFT JOIN book_authors ba ON 
 LEFT JOIN authors a ON ba.author_id = a.id WHERE b.id = :id');
 $stmt->execute(['id' => $id]);
 $book = $stmt->fetch();
+
+
+$id =  $_GET['id'];
+if ($_GET['save'] == 'Salvesta') {
+    $title = $_GET['title'];
+    $year = $_GET['year'];
+    $stock = $_GET['stock'];
+    $pages = $_GET['page'];
+    $language = $_GET['language'];
+    $names = $_GET['names'];
+    $stmt = $pdo->prepare('UPDATE books SET title = :title, release_date = :year, language = :language, price = :price, stock_saldo = :stock_saldo, pages = :pagess WHERE id = :id');
+    $stmt ->execute(['id' => $id, 'year' => $year, 'title' => $title, 'language' => $language, 'price' => $price, 'stock_saldo' => $stock, 'pagess' => $pages]);
+    header("Location: book.php?id=".$id);
+    die();
+}
 ?>
 
 
@@ -44,12 +59,19 @@ $book = $stmt->fetch();
         <input type='text' name='language' value='<?php echo $book['language']; ?>'>
         <br>
     <h3>Autori nimi</h3>
+
+    
        
         <input type='text' name='names' value='<?=$book['first_name']?> <?=$book['last_name']?>'>
         <br>
         <br>
-        <input type='submit' value='Salvesta'>
-    </form>
 
+        <h3>Ilmumisaasta</h3>
+        <input type='text' name='year' value='<?php echo $book['release_date']; ?>'>
+        <br>
+        
+        <input type='submit' name='save' value='Salvesta'>
+    </form>
 </body>
 </html>
+
